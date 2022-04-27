@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:46:59 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 17:49:21 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 00:24:52 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*ft_newnode(t_pswap *stc)
 
 	data = (t_node *) malloc(sizeof(t_node));
 	if (!data)
-		return (NULL);
+		exit(1);
 	data->num = stc->num;
 	data->is_list = stc->is_list;
 	data->next = NULL;

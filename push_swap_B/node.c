@@ -6,11 +6,23 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:28:12 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 18:28:52 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 01:56:57 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+t_node	*ft_newnode(int num)
+{
+	t_node	*data;
+
+	data = (t_node *) malloc(sizeof(t_node));
+	if (!data)
+		exit(1);
+	data->num = num;
+	data->next = NULL;
+	return (data);
+}
 
 int	first_last(t_node *stack, char *type)
 {
@@ -26,7 +38,6 @@ int	first_last(t_node *stack, char *type)
 	number = cpy->num;
 	return (number);
 }
-
 
 t_node	*node_last(t_node *lst)
 {
@@ -77,16 +88,4 @@ void	add_back_node(t_node **lst, int number)
 		*lst = new;
 	else
 		node_last(*lst)->next = new;
-}
-
-void	add_front_node(t_node **lst, int number)
-{
-	t_node	*new;
-
-	new = (t_node *)malloc(sizeof(t_node));
-	if (!new)
-		exit (1);
-	new->num = number;
-	new->next = *lst;
-	*lst = new;
 }

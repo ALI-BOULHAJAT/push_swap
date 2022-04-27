@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 15:38:56 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 17:59:11 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 01:59:20 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,14 @@ void	ft_free(t_node **stack_a, t_node **stack_b, t_pswap *stc)
 	free(stc);
 }
 
+void	ft_sorting(t_pswap **stc, t_node **stack_a, t_node **stack_b, int ac)
+{
+	if (ac > 2 && ac <= 6)
+		*stack_a = special_case(ac, *stack_a, *stack_b, *stc);
+	else if (ac > 6)
+		*stack_a = best_move(*stc, *stack_a, *stack_b);
+}
+
 int	main(int ac, char **av)
 {
 	t_pswap	*stc;
@@ -76,15 +84,14 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		stc = (t_pswap *)malloc(sizeof(t_pswap));
+		if (!stc)
+			exit(1);
 		stc->argv = av;
 		stc->num = 0;
 		stc->is_list = 0;
 		ft_check_arg(stc);
 		ft_parcing(stc, &stack_a);
-		if (ac > 2 && ac <= 6)
-			stack_a = special_case(ac, stack_a, stack_b, stc);
-		else
-			stack_a = best_move(stc, stack_a, stack_b);
+		ft_sorting(&stc, &stack_a, &stack_b, ac);
 	}
 	else
 		ft_error();

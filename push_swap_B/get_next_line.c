@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 08:59:11 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/27 00:31:08 by aboulhaj         ###   ########.fr       */
+/*   Created: 2022/04/26 23:00:43 by aboulhaj          #+#    #+#             */
+/*   Updated: 2022/04/27 00:27:50 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
 char	*ft_strdup(const char *s1)
 {
@@ -31,4 +31,29 @@ char	*ft_strdup(const char *s1)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+char	*get_next_line(int fd)
+{
+	char	buff[1];
+	char	line[999999];
+	int		i;
+	int		n;
+
+	line[0] = 0;
+	i = 0;
+	if (fd < 0)
+		return (NULL);
+	n = read(fd, buff, 1);
+	while (n > 0)
+	{
+		line[i++] = buff[0];
+		line[i] = '\0';
+		if (buff[0] == '\n')
+			return (ft_strdup(line));
+		n = read(fd, buff, 1);
+	}
+	if (!line[0])
+		return (NULL);
+	return (ft_strdup(line));
 }

@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 00:37:24 by aboulhaj          #+#    #+#             */
-/*   Updated: 2021/11/23 22:53:09 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 00:31:49 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*write_word(char const *s, char c)
 		ft_strlcpy(ptr, s, i + 1);
 		return (ptr);
 	}
-	return (NULL);
+	exit(1);
 }
 
 static char	**ft_freestr(char **tab)
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 		num_str = count_word(s, c);
 		tab = (char **)malloc(sizeof(char *) * (num_str + 1));
 		if (!tab)
-			return (NULL);
+			exit(1);
 		i = -1;
 		while ((++i) < num_str)
 		{

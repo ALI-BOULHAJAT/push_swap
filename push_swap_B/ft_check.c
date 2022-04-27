@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:52:46 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 19:07:02 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 01:54:15 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,44 +54,47 @@ char	*pre_join(char *s1, char *s2)
 	return (tab);
 }
 
-void	ft_join(t_pswap *stc)
+char	*ft_join(char **av)
 {
 	int		i;
 	int		j;
+	char	*tab;
 	char	**num;
 	char	*temp;
 
 	i = 1;
-	stc->tab = ft_strdup("");
-	while (stc->argv[i])
+	tab = ft_strdup("");
+	while (av[i])
 	{
 		j = 0;
-		num = ft_split(stc->argv[i], ' ');
+		num = ft_split(av[i], ' ');
 		if (num[0] == NULL)
 			ft_error();
 		while (num[j])
 		{
-			temp = pre_join(stc->tab, num[j]);
-			stc->tab = pre_join(temp, " ");
+			temp = pre_join(tab, num[j]);
+			tab = pre_join(temp, " ");
 			free(num[j]);
 			j++;
 		}
 		free(num);
 		i++;
 	}
+	return (tab);
 }
 
-void	ft_check_arg(t_pswap *stc)
+char	*ft_check_arg(char **av)
 {
 	int		i;
 	int		j;
 	char	**num;
+	char	*tab;
 
 	i = 1;
-	while (stc->argv[i])
+	while (av[i])
 	{
 		j = 0;
-		num = ft_split(stc->argv[i], ' ');
+		num = ft_split(av[i], ' ');
 		while (num[j])
 		{
 			if (!ft_isnumber(num[j]))
@@ -102,6 +105,7 @@ void	ft_check_arg(t_pswap *stc)
 		free(num);
 		i++;
 	}
-	ft_join(stc);
-	check_repeat(stc->tab);
+	tab = ft_join(av);
+	check_repeat(tab);
+	return (tab);
 }

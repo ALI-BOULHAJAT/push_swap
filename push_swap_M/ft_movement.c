@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:56:07 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 17:51:01 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 00:38:42 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_node	*part_swap(t_node *stack, int line)
 t_node	*movement_swap(t_node **stack, char name_stack)
 {
 	int		line;
-	t_node	**header;
 
 	line = ft_nodeline(*stack);
 	if (line >= 2)
@@ -46,7 +45,7 @@ t_node	*movement_swap(t_node **stack, char name_stack)
 	return (*stack);
 }
 
-t_node	*delone(t_node *stack, t_pswap *stc, char *check)
+t_node	*delone(t_node *stack, char *check)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
@@ -77,12 +76,12 @@ t_node	*movement_rotation(t_pswap *stc, t_node *stack, char *type)
 	if (!ft_strcmp(type, "down"))
 	{
 		add_front_node(&stack, stc);
-		stack = delone(stack, stc, "down");
+		stack = delone(stack, "down");
 	}
 	else
 	{
 		add_back_node(&stack, stc);
-		stack = delone(stack, stc, "up");
+		stack = delone(stack, "up");
 	}
 	return (stack);
 }

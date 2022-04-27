@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:52:35 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 17:50:44 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 00:36:44 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_pa(t_pswap *stc, t_node **stack1, t_node **stack2)
 	stc->num = (*stack2)->num;
 	stc->is_list = (*stack2)->is_list;
 	add_front_node(stack1, stc);
-	*stack2 = delone(*stack2, stc, "up");
+	*stack2 = delone(*stack2, "up");
 	write (1, "pa\n", 3);
 }
 
@@ -26,7 +26,7 @@ void	ft_pb(t_pswap *stc, t_node **stack1, t_node **stack2)
 	stc->num = (*stack1)->num;
 	stc->is_list = (*stack1)->is_list;
 	add_front_node(stack2, stc);
-	*stack1 = delone(*stack1, stc, "up");
+	*stack1 = delone(*stack1, "up");
 	write (1, "pb\n", 3);
 }
 

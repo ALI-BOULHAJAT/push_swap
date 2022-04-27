@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:47:44 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/26 18:00:15 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 00:35:57 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		ft_numcmp(const char *s1, const char *s2);
 
 void	ft_error(void);
 t_node	*movement_rotation(t_pswap *stc, t_node *stack, char *type);
-t_node	*delone(t_node *stack, t_pswap *stc, char *check);
+t_node	*delone(t_node *stack, char *check);
 t_node	*movement_swap(t_node **stack, char name_stack);
 
 t_node	*special_case(int ac, t_node *stack_a, t_node *stack_b, t_pswap *stc);
