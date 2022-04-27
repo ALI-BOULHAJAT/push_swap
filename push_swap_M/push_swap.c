@@ -6,7 +6,7 @@
 /*   By: aboulhaj <aboulhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 15:38:56 by aboulhaj          #+#    #+#             */
-/*   Updated: 2022/04/27 01:59:20 by aboulhaj         ###   ########.fr       */
+/*   Updated: 2022/04/27 02:06:39 by aboulhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	write (2, "Error", 6);
+	write (2, "Error\n", 6);
 	exit(1);
 }
 

@@ -2,7 +2,7 @@ NAME = push_swap
 
 SRC = push_swap_M/push_swap.c push_swap_M/ft_isnumber.c push_swap_M/ft_check.c push_swap_M/ft_node.c push_swap_M/ft_movement.c push_swap_M/best_move.c push_swap_M/basic_sort.c push_swap_M/sort_three.c push_swap_M/indexing.c push_swap_M/ft_push.c
 
-SRC_BONUS = push_swap_B/checker.c push_swap_B/ft_check.c push_swap_B/movement.c push_swap_B/node.c push_swap_B/ft_isnumber.c push_swap_B/get_next_line.c
+SRC_BONUS = push_swap_B/checker.c push_swap_B/ft_check.c push_swap_B/movement.c push_swap_B/node.c push_swap_B/ft_isnumber.c push_swap_B/get_next_line.c push_swap_B/ft_utils.c
 
 CC = cc
 
